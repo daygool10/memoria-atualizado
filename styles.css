@@ -2,25 +2,32 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    margin: 0;
     background-image: url("Card\ Suit\ Art.jpg");
+    background-size: cover;
+    background-position: center;
     font-family: Arial, sans-serif;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .game-board {
     display: grid;
-    grid-template-columns: repeat(7, 80px);
-    grid-gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
 }
 
 .card {
-    width: 120px;
-    height: 180px;
+    aspect-ratio: 2 / 3; /* Mantém proporção 120x180 */
     background-color: #ecf0f1;
     border-radius: 10px;
     cursor: pointer;
     position: relative;
     perspective: 1000px;
+    width: 100%; /* Ocupará todo o espaço disponível da célula do grid */
 }
 
 .card-inner {
@@ -48,12 +55,12 @@ body {
     background-color: #ecf0f1;
     background-size: cover;
     background-position: center;
-    transform: rotateY(180deg); /* Esconde a frente inicialmente */
+    transform: rotateY(180deg);
 }
 
 .card-back {
     background-color: #630303;
-    background-image:url("verso.jpg");
+    background-image: url("verso.jpg");
     background-size: cover;
     background-position: center;
     border-radius: 10px;
